@@ -126,19 +126,17 @@ st.set_page_config(page_title="Weekly Report", layout="wide")
 def main():
     st.title("🛡️ Mandiant Weekly Report Sorter")
     st.markdown(
-        "Upload up to **5 Mandiant PDF reports** to generate an Excel report "
+        "Upload Mandiants PDF reports to generate an Excel report "
         "and incident dashboard."
     )
 
     uploaded_files = st.file_uploader(
-        "Upload PDF reports (maximum 5 files)",
+        "Upload PDF reports",
         type="pdf",
         accept_multiple_files=True,
     )
 
-    status_placeholder = st.empty()
     progress_bar = st.progress(0)
-    status_placeholder.text("Status: Idle")
 
     if not uploaded_files:
         st.info("No files uploaded yet.")
@@ -146,7 +144,6 @@ def main():
 
     if st.button("Generate Master Excel & Dashboard"):
         progress_bar.progress(0)
-        status_placeholder.text("Status: Preparing files")
 
         tmp_dir = tempfile.mkdtemp(prefix="taa_pdfs_")
         pdf_paths = []
@@ -161,8 +158,6 @@ def main():
                 b.write(f.getbuffer())
             pdf_paths.append(path)
             progress_bar.progress((idx + 1) / total_files)
-
-        status_placeholder.text("Status: Building analytics tables")
 
         try:
             acc, dat, mal, oth, tot, cty = build_all_tables_from_pdfs(pdf_paths)
@@ -182,8 +177,7 @@ def main():
             "Malware": malware_cnt,
             "Other Threats": other_cnt,
         }
-
-        status_placeholder.text("Status: Completed")
+        
         progress_bar.progress(1.0)
         st.success("Analysis complete.")
 
