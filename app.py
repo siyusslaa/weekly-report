@@ -150,9 +150,7 @@ def main():
         total_files = len(uploaded_files)
 
         for idx, f in enumerate(uploaded_files):
-            status_placeholder.text(
-                f"Status: Processing {f.name} ({idx + 1}/{total_files})"
-            )
+          
             path = os.path.join(tmp_dir, f.name)
             with open(path, "wb") as b:
                 b.write(f.getbuffer())
