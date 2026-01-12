@@ -4,3 +4,4 @@ pdfplumber
 pycountry
 plotly
 xlsxwriter
+python-pptx
