@@ -394,7 +394,7 @@ st.set_page_config(page_title="Weekly Report", layout="wide")
 
 
 def main():
-    st.title("🛡️ Mandiant Weekly Report Sorter")
+    st.title("🛡️ Mandiant Weekly Report Builder")
     st.markdown(
         "Upload multiple Mandiant PDF reports to generate a Excel report and incident dashboard"
     )
@@ -413,7 +413,7 @@ def main():
         st.info("No files uploaded yet.")
         return
 
-    if st.button("Generate Master Excel & Dashboard"):
+    if st.button("Generate Master Excel, PowerPoint & Dashboard"):
         progress_bar.progress(0)
         status_placeholder.text("Status: Preparing files")
 
@@ -530,7 +530,7 @@ def main():
         st.download_button(
             "📥 Download Consolidated Excel Report",
             excel_bytes,
-            file_name="Consolidated_Weekly_Report.xlsx",
+            file_name="Weekly_Report.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         )
 
