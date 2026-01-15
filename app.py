@@ -528,7 +528,7 @@ def main():
         st.divider()
         excel_bytes = build_excel_bytes((acc, dat, mal, oth, tot, cty))
         st.download_button(
-            "📥 Download Consolidated Excel Report",
+            "📥 Download Master Excel",
             excel_bytes,
             file_name="Weekly_Report.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
