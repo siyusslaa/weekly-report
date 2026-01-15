@@ -552,7 +552,6 @@ def main():
                     file_name="Weekly_Briefing.pptx",
                     mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
                 )
-                st.caption("PowerPoint uses a template if present; otherwise it uses a default layout.")
             except Exception as e:
                 st.warning(f"PowerPoint generation failed: {e}")
         else:
