@@ -547,9 +547,9 @@ def main():
                     cty=cty,
                 )
                 st.download_button(
-                    "📥 Download PowerPoint Briefing",
+                    "📥 Download PowerPoint",
                     pptx_bytes,
-                    file_name="Weekly_Briefing.pptx",
+                    file_name="Weekly_Slides.pptx",
                     mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
                 )
             except Exception as e:
